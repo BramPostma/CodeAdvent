@@ -24,7 +24,7 @@ while True:
     old_fuel = fuel_cost(best_posistion,data)
     new_fuel_up = fuel_cost(up_posistion,data)
     new_fuel_down = fuel_cost(down_posistion,data)
-    if ((old_fuel<=new_fuel_down) and (old_fuel<=new_fuel_up)):
+    if ((old_fuel<=new_fuel_down) and (old_fuel<=new_fuel_up) and ((old_fuel<new_fuel_down) or (old_fuel<new_fuel_up))):
         print('\nBest position: ' + str(best_posistion) + '. with total fuel cost of: ' + str(old_fuel))
         print('\nUp would be:\nBest position:' + str(up_posistion) + '. with total fuel cost of: ' + str(new_fuel_up))
         print('\nDown would be:\nBest position:' + str(down_posistion) + '. with total fuel cost of: ' + str(new_fuel_down))
