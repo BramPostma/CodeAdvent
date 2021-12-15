@@ -16,9 +16,7 @@ last_column = np.eye(9,1)
 overgangs_matrix = np.hstack([overgangs_matrix,last_column])
 
 
-#with open('the-zen-of-python.txt') as f:
-#    for line in f:
-#        print(line)
+
 
 
 def make_babies(population):
