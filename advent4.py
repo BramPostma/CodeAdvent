@@ -1,4 +1,5 @@
 import numpy as np
+from numpy.__config__ import show
 
 trekking = [74,79,46,2,19,27,31,90,21,83,94,77,0,29,38,72,42,23,6,62,45,95,41,55,93,69,39,17,12,1,20,53,49,71,61,13,88,25,87,26,50,58,28,51,89,64,3,80,36,65,57,92,52,86,98,78,9,33,44,63,16,34,97,60,40,66,75,4,7,84,22,43,11,85,91,32,48,14,18,76,8,47,24,81,35,30,82,67,37,70,15,5,73,59,54,68,56,96,99,10]
 
@@ -625,22 +626,29 @@ def Check_kaart(checkkaart):
         return False
 
 notFound = True
+showFirst = True
 
 for n in trekking:
-    if notFound:
-        for i in range(len(kaarten)):
-            checkkaarten[i] = Check_number(kaarten[i],n,checkkaarten[i])
-            if Check_kaart(checkkaarten[i]):
-                kaartdone[i] = 1
-                if (sum(kaartdone) == 99):
-                    k = kaartdone.index(0)
-                if (sum(kaartdone) == 100):
-                    print('winnaar kaart:' + str(k) + '. Na trekking ' + str(n))
-                    print('De winnende kaart: \n')
-                    print(kaarten[k])
-                    print('\nDe afgekruiste nummers op de kaart: \n')
-                    print(checkkaarten[k])
-                    print('\nDe sum of all unmarked numbers times the number that was just called: ' + str(np.multiply(kaarten[k],1-checkkaarten[k]).sum()*n))
-                    notFound = False
-                    break
+	if notFound:
+		for i in range(len(kaarten)):
+			checkkaarten[i] = Check_number(kaarten[i],n,checkkaarten[i])
+			if Check_kaart(checkkaarten[i]):
+				kaartdone[i] = 1
+				if (sum(kaartdone) == 1 and showFirst):
+					showFirst = False
+					print('winnaar kaart: ' + str(i) + ' Na trekking ' + str(n))
+					print('De winnende kaart: \n')
+					print(kaarten[i])
+					print('\nDe afgekruiste nummers op de kaart: \n')
+					print(checkkaarten[i])
+					print('\nDe sum of all unmarked numbers times the number that was just called: ' + str(np.multiply(kaarten[i],1-checkkaarten[i]).sum()*n))
+				elif (sum(kaartdone) == 100):
+					print('\nDe laatste winnende kaart: ' + str(i) + ' Na trekking ' + str(n))
+					print('De winnende kaart: \n')
+					print(kaarten[i])
+					print('\nDe afgekruiste nummers op de kaart: \n')
+					print(checkkaarten[i])
+					print('\nDe sum of all unmarked numbers times the number that was just called: ' + str(np.multiply(kaarten[i],1-checkkaarten[i]).sum()*n))
+					notFound = False
+					break
 
