@@ -503,9 +503,10 @@ movement = np.array([
     [[526,455],[590,455]]
     ])
 
+speelveld_a = np.zeros((1000,1000))
 speelveld = np.zeros((1000,1000))
 
-def traceLine(vector,speelveld):
+def traceLine(vector,speelveld,speelveld_a):
     start_x = vector[0][0]
     end_x = vector[1][0]
     start_y = vector[0][1]
@@ -517,6 +518,7 @@ def traceLine(vector,speelveld):
     if ((start_x == end_x) or (start_y == end_y)):
         for x in range(start_x,end_x+direction_x,direction_x):
             for y in range(start_y,end_y+direction_y,direction_y):
+                speelveld_a[y,x] = speelveld_a[y,x]+1
                 speelveld[y,x] = speelveld[y,x]+1
     else:
         len_x = abs(end_x - start_x) + 1
@@ -527,13 +529,14 @@ def traceLine(vector,speelveld):
             y = start_y + (direction_y*i)
             x = start_x + (direction_x*i)
             speelveld[y,x] = speelveld[y,x]+1
-    return speelveld
+    return speelveld,speelveld_a
 
 
 n_movements = len(movement)
 
 for i in range(n_movements):
-    speelveld = traceLine(movement[i],speelveld)
+    speelveld,speelveld_a = traceLine(movement[i],speelveld,speelveld_a)
 
+print((speelveld_a>1*1).sum())
 print((speelveld>1*1).sum())
 
