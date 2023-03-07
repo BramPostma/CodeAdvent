@@ -16,7 +16,7 @@ To run the solutions, you'll need to have Python 3 installed on your machine.
 
 ### Running the Solutions
 
-Each year's solutions are contained in a separate directory named after the year (e.g. `2015`, `2016`, etc.). Within each year's directory, the solutions for each day are contained in a separate Python file named after the day (e.g. `day01.py`, `day02.py`, etc.).
+Each year's solutions are contained in a separate directory named after the year (e.g. `2015`, `2016`, etc.). Within each year's directory, the solutions for each day are contained in a separate directories which contain a Python file named after the day (e.g. `advent1.py`, `advent2.py`, etc.).
 
 To run a solution, simply execute the corresponding Python file from the command line:
 
@@ -26,7 +26,7 @@ python src/2021/day06/advent6.py
 
 ### Input Data
 
-The input data for each day's challenge is stored in a text file with a name matching the day's Python file, but with the `.txt` extension (e.g. `2015/day01.txt`, `2015/day02.txt`, etc.). The input data is read into the Python solution using the `open()` function.
+The input data for each day's challenge is stored in a text file in the same folder as the python code (e.g. `src/2015/day1/input.txt`, `src/2015/day2/input.txt`, etc.). The input data is read into the Python solution using the `open()` function.
 
 ## Contributing
 
