@@ -10,9 +10,6 @@ text_list = read_text("day1/input.txt")
 
 numbers_dict = {"one":1, "two":2, "three":3, "four":4, "five":5, "six":6, "seven":7, "eight":8, "nine":9}
 
-def is_numeric(char: str):
-    return char.isdigit()
-
 
 def written_number(input_string: str) -> str:
     """ Func to check if string starts with a written digit """
