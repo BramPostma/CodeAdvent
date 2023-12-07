@@ -32,9 +32,9 @@ def process_game_draws(game_draws: str, index: int) -> (int,int,int):
             max_red = max(max_red,get_color(single_color_stripped,"red"))
             max_green = max(max_green,get_color(single_color_stripped,"green"))
             max_blue = max(max_blue,get_color(single_color_stripped,"blue"))
-    if max_red <= 12 and max_green <= 13 and max_blue <= 14:
-        return index
-    return 0
+    #if max_red <= 12 and max_green <= 13 and max_blue <= 14:
+    #    return index
+    return max_red * max_green * max_blue
 
 def process_game(game_outcome: str):
     """ Returns index of game if correct amount of cubes are present based on strings with all game info"""
